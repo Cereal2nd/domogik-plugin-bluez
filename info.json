@@ -47,7 +47,7 @@
             "description": "Bluethooth device found",
             "name": "found",
             "commands": [],
-            "sensors": ['available'],
+            "sensors": ["available"],
             "parameters": [
                 {
                     "key": "hwAddress",
