@@ -64,7 +64,7 @@ class BluezAPI:
         self._hysteresis = hysteresis
         
         self.scanThread = threading.Thread(None,
-                        self._scan(),
+                        self._scan,
                         "scan",
                         (),
                         {})

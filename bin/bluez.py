@@ -53,23 +53,16 @@ class Bluez(XplPlugin):
             return
         devices = self.get_device_list(quit_if_no_device = True)
 
-        try:
-            delay_sensor = self.get_config("delay-sensor")
-            delay_stat = self.get_config("delay-stat")
-            delay_scan = self.get_config("scan-delay")
-            delay_error = self.get_config("error-delay")
-            hysteresis = self.get_config("hysteresis")
-            print "<=============="
-            self._bluez = BluezAPI(self.log, self.myxpl, self.get_stop(), \
-                        self.devices, \
-                        delay_sensor, delay_stat, delay_scan, \
-                        delay_error, hysteresis)
-            self.add_stop_cb(self._bluez.stop_adaptator())
-            print "<=============="
-        except:
-            error = "Something went wrong during bluezAPI init : %s" %  \
-                     (traceback.format_exc())
-            self.log.error("__init__ : "+error)
+        delay_sensor = self.get_config("delay-sensor")
+        delay_stat = self.get_config("delay-stat")
+        delay_scan = self.get_config("scan-delay")
+        delay_error = self.get_config("error-delay")
+        hysteresis = self.get_config("hysteresis")
+        self._bluez = BluezAPI(self.log, self.myxpl, self.get_stop(), \
+                    self.devices, \
+                    delay_sensor, delay_stat, delay_scan, \
+                    delay_error, hysteresis)
+        self.add_stop_cb(self._bluez.stop_adaptator)
 
         Listener(self.basic_cmnd_cb, self.myxpl,
                  {'schema': 'bluez.basic', 'xpltype': 'xpl-cmnd'})

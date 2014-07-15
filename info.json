@@ -47,7 +47,7 @@
             "description": "Bluethooth device found",
             "name": "found",
             "commands": [],
-            "sensors": [],
+            "sensors": ['available'],
             "parameters": [
                 {
                     "key": "hwAddress",
@@ -75,7 +75,37 @@
     },
     "json_version": 2,
     "xpl_commands": {},
-    "xpl_stats": {},
     "commands": {},
-    "sensors": {}
+    "xpl_stats": {
+       "get_availability": {
+            "name": "get_availability",
+            "schema": "bluez.new",
+            "parameters": {
+                "static": [],
+                "device": [],
+                "dynamic": [
+                    {
+                         "key": "state",
+                         "ignore_values": "",
+                         "sensor": "available"
+                    }
+                ]
+            }
+       }
+    },
+    "sensors": {
+        "available": {
+            "name": "availablity",
+            "data_type": "DT_Switch",
+            "conversion": "",
+            "incremental": false,
+            "history": {
+                "store": true,
+                "duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        }
+    }
 }
