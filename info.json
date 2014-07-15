@@ -1,0 +1,81 @@
+{
+    "configuration": [
+        {
+            "default": "300",
+            "description": "The delay in seconds between two status messages. 0 to disable.",
+            "key": "delay-sensor",
+            "name": "Sensor delay",
+            "required": "yes",
+            "type": "int"
+        },
+        {
+            "default": "3",
+            "description": "The delay in seconds between 2 stat's messages when sending sensors status. 3 by default.",
+            "key": "delay-stat",
+            "name": "Stat messages Delay",
+            "required": "yes",
+            "type": "int"
+        },
+        {
+            "default": "30",
+            "description": "The delay between 2 bluetooth scans.",
+            "key": "scan-delay",
+            "name": "Scan delay",
+            "required": "yes",
+            "type": "int"
+        },
+        {
+            "default": "120",
+            "description": "The delay to wait when an error occurs with the bluetooth adaptator.",
+            "key": "error-delay",
+            "name": "Error delay",
+            "required": "yes",
+            "type": "int"
+        },
+        {
+            "default": "3",
+            "description": "The number of negative scans before sending a low trig.",
+            "key": "hysteresis",
+            "name": "Hysteresis",
+            "required": "yes",
+            "type": "int"
+        }
+    ],
+    "device_types": {
+        "bluez.found": {
+            "id": "bluez.found",
+            "description": "Bluethooth device found",
+            "name": "found",
+            "commands": [],
+            "sensors": [],
+            "parameters": [
+                {
+                    "key": "hwAddress",
+                    "xpl": true,
+                    "description": "The mac address of the device",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "identity": {
+        "name": "Bluez",
+        "author": "Sebastien GALLET & Maikel Punie",
+        "author_email": "sgallet at gmail dot com & maikel.punie at gmail dot com",
+        "dependencies": [
+            {
+                "id": "pybluez (>=0.18)",
+                "type": "python"
+            }
+        ],
+        "description": "A blue tooth dectector. Send an XPL message when a friend device is found.",
+        "domogik_min_version": "0.4.0",
+        "type": "plugin",
+        "version": "0.3"
+    },
+    "json_version": 2,
+    "xpl_commands": {},
+    "xpl_stats": {},
+    "commands": {},
+    "sensors": {}
+}
