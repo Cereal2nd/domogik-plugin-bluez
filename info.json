@@ -6,7 +6,7 @@
             "key": "delay-sensor",
             "name": "Sensor delay",
             "required": "yes",
-            "type": "int"
+            "type": "integer"
         },
         {
             "default": "3",
@@ -14,7 +14,7 @@
             "key": "delay-stat",
             "name": "Stat messages Delay",
             "required": "yes",
-            "type": "int"
+            "type": "integer"
         },
         {
             "default": "30",
@@ -22,7 +22,7 @@
             "key": "scan-delay",
             "name": "Scan delay",
             "required": "yes",
-            "type": "int"
+            "type": "integer"
         },
         {
             "default": "120",
@@ -30,7 +30,7 @@
             "key": "error-delay",
             "name": "Error delay",
             "required": "yes",
-            "type": "int"
+            "type": "integer"
         },
         {
             "default": "3",
@@ -38,7 +38,7 @@
             "key": "hysteresis",
             "name": "Hysteresis",
             "required": "yes",
-            "type": "int"
+            "type": "integer"
         }
     ],
     "device_types": {
@@ -50,7 +50,7 @@
             "sensors": ["available"],
             "parameters": [
                 {
-                    "key": "hwAddress",
+                    "key": "device",
                     "xpl": true,
                     "description": "The mac address of the device",
                     "type": "string"
@@ -79,13 +79,18 @@
     "xpl_stats": {
        "get_availability": {
             "name": "get_availability",
-            "schema": "bluez.new",
+            "schema": "sensor.basic",
             "parameters": {
-                "static": [],
+                "static": [
+                    {
+                        "key": "type",
+                        "value": "bluez"
+                    }
+                ],
                 "device": [],
                 "dynamic": [
                     {
-                         "key": "state",
+                         "key": "current",
                          "ignore_values": "",
                          "sensor": "available"
                     }
@@ -99,6 +104,7 @@
             "data_type": "DT_Switch",
             "conversion": "",
             "incremental": false,
+            "timeout": 0,
             "history": {
                 "store": true,
                 "duplicate": false,
