@@ -1,7 +1,11 @@
-.. _index:
+.. _toc:
 
 ================
-Table of content
+Table Of Content
 ================
 
-* :doc:`Plugin documentation </bluez>`
+.. toctree::
+
+    /main
+    /changelog
+
