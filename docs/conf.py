@@ -10,9 +10,9 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 ### part to update ###################################
-project = u'domogik-plugin-rfxcom'
-copyright = u'2014, Fritz'
-version = '0.1'
+project = u'domogik-plugin-bluez'
+copyright = u'2015, Cereal'
+version = '0.4'
 release = version
 ######################################################
 
