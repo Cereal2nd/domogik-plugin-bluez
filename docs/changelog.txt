@@ -2,9 +2,10 @@
 Changelog
 =========
 
-0.4
+1.0
 ===
 
-* converted the plugin to 0.4 domogik
+* converted the plugin to Domogik 0.4.1
 * rewrite
+
 

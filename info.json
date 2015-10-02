@@ -2,7 +2,7 @@
     "configuration": [
         {
             "default": "30",
-            "description": "The delay between 2 bluetooth scans.",
+            "description": "The delay between 2 bluetooth scans (seconds).",
             "key": "scan-delay",
             "name": "Scan delay",
             "required": "yes",
@@ -10,7 +10,7 @@
         },
         {
             "default": "120",
-            "description": "The delay to wait when an error occurs with the bluetooth adaptator.",
+            "description": "The delay to wait when an error occurs with the bluetooth adaptator (seconds).",
             "key": "error-delay",
             "name": "Error delay",
             "required": "yes",
@@ -43,7 +43,7 @@
         }
     },
     "identity": {
-        "name": "Bluez",
+        "name": "bluez",
         "author": "Sebastien GALLET & Maikel Punie",
         "author_email": "sgallet at gmail dot com & maikel.punie at gmail dot com",
         "dependencies": [
@@ -53,9 +53,9 @@
             }
         ],
         "description": "A blue tooth dectector. Send an XPL message when a friend device is found.",
-        "domogik_min_version": "0.4.0",
+        "domogik_min_version": "0.4.1",
         "type": "plugin",
-        "version": "0.4"
+        "version": "1.0"
     },
     "json_version": 2,
     "xpl_commands": {},
