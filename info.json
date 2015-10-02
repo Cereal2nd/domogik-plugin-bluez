@@ -1,22 +1,6 @@
 {
     "configuration": [
         {
-            "default": "300",
-            "description": "The delay in seconds between two status messages. 0 to disable.",
-            "key": "delay-sensor",
-            "name": "Sensor delay",
-            "required": "yes",
-            "type": "integer"
-        },
-        {
-            "default": "3",
-            "description": "The delay in seconds between 2 stat's messages when sending sensors status. 3 by default.",
-            "key": "delay-stat",
-            "name": "Stat messages Delay",
-            "required": "yes",
-            "type": "integer"
-        },
-        {
             "default": "30",
             "description": "The delay between 2 bluetooth scans.",
             "key": "scan-delay",

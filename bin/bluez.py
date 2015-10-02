@@ -52,32 +52,20 @@ class Bluez(XplPlugin):
             self.force_leave()
             return
         devices = self.get_device_list(quit_if_no_device = True)
+        devs = {}
+        for dev in devices:
+            mac = self.get_parameter_for_feature(dev, 'xpl_stats', 'get_availability', 'device') 
+            devs[mac] = {'status': 0, 'hyster': 0}
 
-        delay_sensor = self.get_config("delay-sensor")
-        delay_stat = self.get_config("delay-stat")
-        delay_scan = self.get_config("scan-delay")
-        delay_error = self.get_config("error-delay")
-        hysteresis = self.get_config("hysteresis")
+        delay_scan = int(self.get_config("scan-delay"))
+        delay_error = int(self.get_config("error-delay"))
+        hysteresis = int(self.get_config("hysteresis"))
         self._bluez = BluezAPI(self.log, self.myxpl, self.get_stop(), \
-                    self.devices, \
-                    delay_sensor, delay_stat, delay_scan, \
+                    devs, delay_scan, \
                     delay_error, hysteresis)
         self.add_stop_cb(self._bluez.stop_adaptator)
-
-        Listener(self.basic_cmnd_cb, self.myxpl,
-                 {'schema': 'bluez.basic', 'xpltype': 'xpl-cmnd'})
-
         # notify ready
         self.ready()
-
-    def basic_cmnd_cb(self, message):
-        """
-        General callback for bluez.basic messages
-        @param message : an XplMessage object
-        """
-        self.log.debug("basic_cmnd_cb() : Start ...")
-        self._bluez.basic_listener(message)
-        self.log.debug("basic_cmnd_cb() : Done :)")
 
 if __name__ == "__main__":
     Bluez()
