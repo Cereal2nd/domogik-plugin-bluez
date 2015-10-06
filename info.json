@@ -1,0 +1,101 @@
+{
+    "configuration": [
+        {
+            "default": "30",
+            "description": "The delay between 2 bluetooth scans (seconds).",
+            "key": "scan-delay",
+            "name": "Scan delay",
+            "required": "yes",
+            "type": "integer"
+        },
+        {
+            "default": "120",
+            "description": "The delay to wait when an error occurs with the bluetooth adaptator (seconds).",
+            "key": "error-delay",
+            "name": "Error delay",
+            "required": "yes",
+            "type": "integer"
+        },
+        {
+            "default": "3",
+            "description": "The number of negative scans before sending a low trig.",
+            "key": "hysteresis",
+            "name": "Hysteresis",
+            "required": "yes",
+            "type": "integer"
+        }
+    ],
+    "device_types": {
+        "bluez.found": {
+            "id": "bluez.found",
+            "description": "Bluethooth device found",
+            "name": "found",
+            "commands": [],
+            "sensors": ["available"],
+            "parameters": [
+                {
+                    "key": "device",
+                    "xpl": true,
+                    "description": "The mac address of the device",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "identity": {
+        "name": "bluez",
+        "author": "Sebastien GALLET & Maikel Punie",
+        "author_email": "sgallet at gmail dot com & maikel.punie at gmail dot com",
+        "dependencies": [
+            {
+                "id": "pybluez (>=0.18)",
+                "type": "python"
+            }
+        ],
+        "description": "A blue tooth dectector. Send an XPL message when a friend device is found.",
+        "domogik_min_version": "0.4.1",
+        "type": "plugin",
+        "version": "1.0"
+    },
+    "json_version": 2,
+    "xpl_commands": {},
+    "commands": {},
+    "xpl_stats": {
+       "get_availability": {
+            "name": "get_availability",
+            "schema": "sensor.basic",
+            "parameters": {
+                "static": [
+                    {
+                        "key": "type",
+                        "value": "bluez"
+                    }
+                ],
+                "device": [],
+                "dynamic": [
+                    {
+                         "key": "current",
+                         "ignore_values": "",
+                         "sensor": "available"
+                    }
+                ]
+            }
+       }
+    },
+    "sensors": {
+        "available": {
+            "name": "availablity",
+            "data_type": "DT_Switch",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+                "store": true,
+                "duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        }
+    }
+}

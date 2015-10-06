@@ -1,0 +1,13 @@
+{% extends theme("base/base.html") %}
+{% import theme("base/wtf.html") as wtf %}
+
+{% block content %}
+{% include theme("client_menu.html") %}
+<div class="container">
+<h2>{% trans %}Result of the 'hcitool scan' command{% endtrans %}</H2>
+<p>{% trans %}If you see only the line <em>Scanning...</em>, it means that no bluetooth device has been detected.{% endtrans %}</p>
+<p>{% trans %}If you were expecting to see a smartphone for example, please make sure that bluetooth is enable on it and maybe you will need to make it visible. See the documentation for more informations.{% endtrans %}</p>
+<p>{% trans %}The fact that this page is long to load is related to the time taken by the command <em>hcitool</em>.{% endtrans %}</p>
+<pre>{{ bt }}</pre>
+</div>
+{% endblock %}
