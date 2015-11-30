@@ -67,13 +67,13 @@ class BluezAPI:
                         (),
                         {})
         self.scanThread.start()
-        self.log.info("Bluetooth detector activated.")
+        self.log.info(u"Bluetooth detector activated.")
 
     def stop_adaptator(self):
         """
         Stop the thread listening to the bluetooth adaptator.
         """
-        self.log.info("Bluetooth detector deactivated.")
+        self.log.info(u"Bluetooth detector deactivated.")
         if self.scanThread:
             self.scanThread.join()
         self.scanThread = None
@@ -84,7 +84,7 @@ class BluezAPI:
         Catch exception and test thread stop.
         """
         while not self._stop.isSet():
-            self.log.info("Scanning")
+            self.log.info(u"Scanning")
             self.log.debug(self._devices)
             try:
                 found = bluetooth.discover_devices()
@@ -97,27 +97,27 @@ class BluezAPI:
                         self._send_xpl('sensor.basic', data)
                         self._devices[dev]['hyster'] = 0
                         self._devices[dev]['status'] = 1
-                        self.log.info("dev {0} moved from away to seen".format(dev))
+                        self.log.info(u"dev {0} moved from away to seen".format(dev))
                     elif dev not in found and self._devices[dev]['status'] == 0 and self._devices[dev]['hyster'] == self._hysteresis:
                         data = {}
                         data['current'] = 0
                         data['device'] = dev
                         self._send_xpl('sensor.basic', data)
-                        self.log.info("dev {0} moved from seen to away".format(dev))
+                        self.log.info(u"dev {0} moved from seen to away".format(dev))
                     elif dev not in found and self._devices[dev]['hyster'] < self._hysteresis:
                         # not seen and previous not seen, but hysteresis not reached
                         self._devices[dev]['hyster'] += 1
                         self._devices[dev]['status'] = 0
                 self._stop.wait(self._scan_delay)
             except Exception as exp:
-                self.log.info("Error happend waiting for {0} seconds".format(self._error_delay))
+                self.log.info(u"Error happend waiting for {0} seconds".format(self._error_delay))
                 self.log.debug(exp)
                 self._stop.wait(self._error_delay)
 
     def _send_xpl(self, schema, data):
         """ Send xPL message on network
         """
-        self.log.info("Sending => schema:%s, data:%s" % (schema, data))
+        self.log.info(u"Sending => schema:%s, data:%s" % (schema, data))
         data['type'] = 'bluez'
         msg = XplMessage()
         msg.set_type("xpl-trig")
