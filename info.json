@@ -26,10 +26,10 @@
         }
     ],
     "device_types": {
-        "bluez.found": {
-            "id": "bluez.found",
-            "description": "Bluethooth device found",
-            "name": "found",
+        "bluez.bluetooth_device": {
+            "id": "bluez.bluetooth_device",
+            "description": "Bluethooth device",
+            "name": "Bluetooth device",
             "commands": [],
             "sensors": ["available"],
             "parameters": [
@@ -59,7 +59,7 @@
         "description": "A blue tooth dectector. Send an XPL message when a friend device is found.",
         "domogik_min_version": "0.4.1",
         "type": "plugin",
-        "version": "1.2",
+        "version": "1.3",
         "tags": ["bluetooth", "presence"]
     },
     "json_version": 2,

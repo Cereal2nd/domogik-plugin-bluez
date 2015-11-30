@@ -2,6 +2,12 @@
 Changelog
 =========
 
+1.3
+===
+
+* Utf-8 fix
+* Rename the device type from 'found' to 'bluetooth_device'. 
+
 1.2
 ===
 
