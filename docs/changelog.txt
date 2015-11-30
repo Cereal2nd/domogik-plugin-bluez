@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.2
+===
+
+* Doc improvment
+
 1.0
 ===
 
