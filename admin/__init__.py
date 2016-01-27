@@ -14,12 +14,14 @@ import subprocess
 
 ### package specific functions
 def list_bt_devices():
-    bt = subprocess.Popen(["hcitool", "scan"], stdout=subprocess.PIPE)
-    output = bt.communicate()[0]
-    if isinstance(bt, str):
-        output = unicode(output, 'utf-8')
-    return output
-
+    try:
+	bt = subprocess.Popen(["hcitool", "scan"], stdout=subprocess.PIPE)
+        output = bt.communicate()[0]
+        if isinstance(bt, str):
+            output = unicode(output, 'utf-8')
+        return output
+    except:
+	output = unicode('Error with BT detection', 'utf-8')
 
 
 
