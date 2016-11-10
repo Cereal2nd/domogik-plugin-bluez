@@ -56,10 +56,10 @@
                 "type": "other"
             }
         ],
-        "description": "A blue tooth dectector. Send an XPL message when a friend device is found.",
+        "description": "A bluetooth dectector. Send an XPL message when a friend device is found.",
         "domogik_min_version": "0.4.1",
         "type": "plugin",
-        "version": "1.3",
+        "version": "1.4",
         "tags": ["bluetooth", "presence"]
     },
     "json_version": 2,

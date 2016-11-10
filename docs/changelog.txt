@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.4
+===
+
+* Fix description in info.json
+
 1.3
 ===
 
