@@ -14,6 +14,7 @@ Dependencies
 
 You need to install the **pybluez** library: ::
 
+    $ sudo apt-get install bluez
     $ sudo apt-get install libbluetooth-dev
     $ sudo pip install pybluez
 
